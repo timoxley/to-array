@@ -2,24 +2,43 @@ var toArray = require('to-array')
 var assert = require('timoxley-assert')
 var domify = require('component-domify')
 
-describe('identifying non-collections', function() {
-  it('correctly identifies JS primitives as non-collections', function () {
-    assert.deepEqual([], toArray(function(){})); // functions should fail
-    assert.deepEqual([], toArray(12345));
-    assert.deepEqual([], toArray(null));
-    assert.deepEqual([], toArray(undefined));
-    assert.deepEqual([], toArray(/regexp/));
-    assert.deepEqual([], toArray(new Date()));
+describe('non-collections', function() {
+  describe('converting into arrays', function () {
+    it('single element is the function for Functions', function() {
+      var func = function(){}
+      assert.deepEqual([func], toArray(func));
+    })
+    it('single element is the number for Numbers', function() {
+      assert.deepEqual([12345], toArray(12345));
+    })
+    it('single element is null for null', function() {
+      assert.deepEqual([null], toArray(null));
+    })
+    it('single element is the regex for Regexps', function() {
+      assert.deepEqual([/regexp/], toArray(/regexp/));
+    })
+    it('single element is the date for Dates', function() {
+      var date = new Date()
+      assert.deepEqual([date], toArray(date));
+    })
+    it('single element is the string for Strings', function() {
+      assert.deepEqual(['string'], toArray('string'));
+    })
   })
 
+  it('single element array is empty for nothing', function() {
+    assert.deepEqual([], toArray());
+  })
   it('detects window is not a collection', function() {
-    assert.deepEqual([], toArray(window));
+    assert.deepEqual([window], toArray(window));
+  })
+  it('single element is empty for undefined', function() {
+    assert.deepEqual([], toArray(undefined));
   })
 })
 
 describe('identifying collections', function() {
   it('correctly identifies arrays', function() {
-    assert.deepEqual(['s','t','r','i','n','g'], toArray('string'));
     assert.deepEqual([1, 2], toArray([1, 2]));
     assert.deepEqual([], toArray([]));
   })
@@ -33,7 +52,8 @@ describe('identifying collections', function() {
   it('won\'t grab numeric indicies if they do not exist', function() {
     var A = function() {}
     A.prototype.length = 4
-    assert.deepEqual([], toArray(new A));
+    var a = new A
+    assert.deepEqual([a], toArray(a));
   })
 })
 
@@ -54,8 +74,8 @@ describe('testing against dom', function() {
     document.body.removeChild(blink2)
   })
 
-  it('fails for single nodes', function() {
-    assert.deepEqual([], toArray(blink1)); // single nodes should fail
+  it('arrayifys single nodes', function() {
+    assert.deepEqual([blink1], toArray(blink1));
   })
 
   it('detects htmlelement collections are array-like', function() {

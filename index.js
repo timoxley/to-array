@@ -8,13 +8,19 @@
  */
 
 module.exports = function toArray(collection) {
+  if (typeof collection === 'undefined') return []
+  if (collection === null) return [null]
+  if (collection === window) return [window]
+  if (typeof collection === 'string') return [collection]
   if (Array.isArray(collection)) return collection.slice()
+  if (collection !== null && !collection.length) return [collection]
+  if (typeof collection === 'function') return [collection]
   var arr = []
-  if (!collection || !collection.length) return arr
   for (var i = 0; i < collection.length; i++) {
     if (collection.hasOwnProperty(i) || i in collection) {
       arr.push(collection[i])
     }
   }
+  if (!arr.length) return [collection]
   return arr
 }
