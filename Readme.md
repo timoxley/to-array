@@ -11,7 +11,7 @@
 
 ```js
 // Array-likes
-var divs = document.getElementsByTagName('div') `NodeList` of `HTMLDivElement`
+var divs = document.getElementsByTagName('div') // `NodeList` of `HTMLDivElement`
 toArray(divs) // => Array of `HTMLDivElement`
 
 (function() {
@@ -28,7 +28,7 @@ toArray(new Date) // => [Wed Nov 07 2012 04:40:26 GMT+1000 (EST)]
 
 // Special cases
 toArray(undefined) // => []
-toArray(window) // => []
+toArray(window) // => [window]
 
 ```
 
