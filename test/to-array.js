@@ -35,6 +35,9 @@ describe('non-collections', function() {
   it('single element is empty for undefined', function() {
     assert.deepEqual([], toArray(undefined));
   })
+  it('detects `{length: true}` is not a collection', function() {
+    assert.deepEqual([{length: true}], toArray({length: true}));
+  })
 })
 
 describe('identifying collections', function() {
