@@ -13,7 +13,7 @@ module.exports = function toArray(collection) {
   if (collection === window) return [window]
   if (typeof collection === 'string') return [collection]
   if (Array.isArray(collection)) return collection.slice()
-  if (collection !== null && !collection.length) return [collection]
+  if (typeof collection.length != 'number') return [collection]
   if (typeof collection === 'function') return [collection]
   var arr = []
   for (var i = 0; i < collection.length; i++) {
