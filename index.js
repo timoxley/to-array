@@ -21,6 +21,5 @@ module.exports = function toArray(collection) {
       arr.push(collection[i])
     }
   }
-  if (!arr.length) return [collection]
   return arr
 }
