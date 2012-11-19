@@ -85,6 +85,10 @@ describe('testing against dom', function() {
     assert.deepEqual([blink1, blink2], toArray(document.getElementsByTagName('blink')));
   })
 
+  it('detects empty collections are array-like', function() {
+    assert.deepEqual([], toArray(document.getElementsByTagName('jkbsdf')));
+  })
+
   it('specifically identifies nodelists as a special collection', function() {
     assert.deepEqual([blink1, blink2], toArray(document.querySelectorAll('.testblink'))); // NodeList
   })

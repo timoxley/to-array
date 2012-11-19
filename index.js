@@ -15,6 +15,8 @@ module.exports = function toArray(collection) {
   if (Array.isArray(collection)) return collection.slice()
   if (typeof collection.length != 'number') return [collection]
   if (typeof collection === 'function') return [collection]
+  if (collection instanceof NodeList && !collection.length) return []
+
   var arr = []
   for (var i = 0; i < collection.length; i++) {
     if (collection.hasOwnProperty(i) || i in collection) {
