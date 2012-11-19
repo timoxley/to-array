@@ -51,7 +51,11 @@ describe('identifying collections', function() {
       assert.deepEqual([1, 2], toArray(arguments), 'arguments should be arraylike'); // arguments collection
     })(1, 2)
   })
-
+  it('correctly identifies empty arguments objects', function() {
+    (function() {
+      assert.deepEqual([], toArray(arguments), 'arguments should be arraylike'); // arguments collection
+    })()
+  })
   it('won\'t grab numeric indicies if they do not exist', function() {
     var A = function() {}
     A.prototype.length = 4
