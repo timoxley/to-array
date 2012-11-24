@@ -69,8 +69,8 @@ describe('testing against dom', function() {
   var blink1, blink2
   before(function() {
     // pick elements that aren't likely to actually appear on the test page
-    blink1 = domify('<blink class="testblink"></blink>')
-    blink2 = domify('<blink class="testblink"></blink>')
+    blink1 = domify('<blink class="testblink"></blink>')[0]
+    blink2 = domify('<blink class="testblink"></blink>')[0]
 
     document.body.appendChild(blink1)
     document.body.appendChild(blink2)
