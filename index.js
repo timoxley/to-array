@@ -4,7 +4,7 @@
  *
  * @param {Array | Mixed} collection An `Array` or array-like object to convert e.g. `arguments` or `NodeList`
  * @return {Array} Naive conversion of `collection` to a new `Array`.
- * @api private
+ * @api public
  */
 
 module.exports = function toArray(collection) {
