@@ -1,4 +1,3 @@
-
 # to-array
 
   Try convert an object into an Array
@@ -24,11 +23,11 @@ toArray(12345) // => [12345]
 toArray(/regex/) // => [/regex/]
 toArray(null) // => [null]
 toArray({}) // => [{}]
+toArray(window) // => [window]
 toArray(new Date) // => [Wed Nov 07 2012 04:40:26 GMT+1000 (EST)]
 
-// Special cases
+// Special case
 toArray(undefined) // => []
-toArray(window) // => [window]
 
 ```
 
@@ -42,7 +41,7 @@ toArray(window) // => [window]
   convert into an `Array`, with a single element being whatever was
   passed to `toArray`.
 
-  `window` and `undefined` will return an empty `Array`
+  `undefined` will return an empty `Array`
 
 ## License
 
