@@ -43,6 +43,10 @@ toArray(undefined) // => []
 
   `undefined` will return an empty `Array`
 
+## Alternatives
+
+[wilmoore/to-array.js](https://github.com/wilmoore/to-array.js): slightly different semantics.
+
 ## License
 
   MIT
