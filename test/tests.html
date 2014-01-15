@@ -2,13 +2,15 @@
   <head>
     <title>Mocha</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="mocha.css" />
+    <link rel="stylesheet" href="../build/build.css" />
   </head>
   <body>
+    <script src="../build/build.js"></script>
     <div id="mocha"></div>
-    <script src="mocha.js"></script>
-    <script>mocha.setup('bdd')</script>
-    <script src="/build/build.js"></script>
+    <script>
+      require('mocha');
+      mocha.setup('bdd');
+    </script>
     <script src="to-array.js"></script>
     <script>
       mocha.run();

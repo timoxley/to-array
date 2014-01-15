@@ -8,8 +8,9 @@
   "dependencies": {
   },
   "development": {
-    "timoxley/assert": "*",
-    "component/domify": "*"
+    "component/domify": "*",
+    "visionmedia/mocha": "*",
+    "techjacker/expect.js": "*"
   },
   "license": "MIT",
   "scripts": [
