@@ -92,9 +92,10 @@ describe('testing against dom', function() {
   it('detects empty collections are array-like', function() {
     expect([]).to.eql(toArray(document.getElementsByTagName('jkbsdf')));
   })
-
-  it('specifically identifies nodelists as a special collection', function() {
-    expect([blink1, blink2]).to.eql(toArray(document.querySelectorAll('.testblink'))); // NodeList
-  })
+  if (document.querySelectorAll) {
+    it('specifically identifies nodelists as a special collection', function() {
+      expect([blink1, blink2]).to.eql(toArray(document.querySelectorAll('.testblink'))); // NodeList
+    })
+  }
 })
 
