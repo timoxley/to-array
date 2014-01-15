@@ -12,7 +12,7 @@ module.exports = function toArray(collection) {
   if (collection === null) return [null]
   if (collection === window) return [window]
   if (typeof collection === 'string') return [collection]
-  if (collection instanceof Array) return collection
+  if (isArray(collection)) return collection
   if (typeof collection.length != 'number') return [collection]
   if (typeof collection === 'function') return [collection]
 
@@ -24,4 +24,8 @@ module.exports = function toArray(collection) {
   }
   if (!arr.length) return []
   return arr
+}
+
+function isArray(arr) {
+  return Object.prototype.toString.call(arr) === "[object Array]";
 }
