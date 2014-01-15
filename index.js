@@ -18,7 +18,7 @@ module.exports = function toArray(collection) {
 
   var arr = []
   for (var i = 0; i < collection.length; i++) {
-    if (collection.hasOwnProperty(i) || i in collection) {
+    if (Object.prototype.hasOwnProperty.call(collection, i) || i in collection) {
       arr.push(collection[i])
     }
   }
