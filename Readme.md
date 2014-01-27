@@ -47,6 +47,13 @@ toArray(undefined) // => []
 
 [wilmoore/to-array.js](https://github.com/wilmoore/to-array.js): slightly different semantics.
 
+## Contributors
+
+* 21	Tim Oxley               75.0%
+* 4	Jonny Strömberg        14.3%
+* 2	Forbes Lindesay         7.1%
+* 1	Dominic Barnes          3.6%
+
 ## License
 
   MIT
